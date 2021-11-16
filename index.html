@@ -122,3 +122,23 @@ def gcd2(a,b):
             return t
         t-=1
 print(gcd2(10,4))
+
+*****************************************************
+string matching
+
+def s(txt,patt):
+    x=len(patt)
+    y=len(txt)
+    i=0
+    while i<y-x+1:
+        j=0
+        while j<x and patt[j]==txt[i+j]:                                                          
+            j+=1
+            
+        if j==x:
+            print("pattern found at index : ",i," ,ending at : ",i+j-1)
+            return
+        i+=1
+    print("not found ! ")
+    
+s("kartik","art")
