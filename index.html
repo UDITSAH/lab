@@ -1,387 +1,54 @@
 <h1>HI</h1>
 <!--
-#Swapping 2 numbers gui
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=int(txt1.get())
-    b=int(txt2.get())
-    c=a
-    a=b
-    b=c
-    txt3.insert(0,str(a))
-    txt4.insert(0,str(b))
+1.FIND GCD OF NUMBER
 
-window=tk.Tk()
-l1=tk.Label(window,text="first number",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="last number",font=("calibri",20))
-l2.grid(column=0,row=3)
-l3=tk.Label(window,text="swap",font=("calibri",20))
-l3.grid(column=0,row=5)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-txt2=tk.Entry(window,width=10)
-txt2.grid(column=1,row=3)
-Var1=tk.StringVar()
-txt3=tk.Entry(window,width=10,textvariable=Var1)
-txt3.grid(column=1,row=5)
-Var2=tk.StringVar()
-txt4=tk.Entry(window,width=10,textvariable=Var2)
-txt4.grid(column=1,row=7)
-bt1=tk.Button(window,text="SWAP",command=clicked)
-bt1.grid(column=2,row=5)
-window.mainloop()
+def gcd1(m,n):
+  l1=[]
+  mini=min(m,n)
+  for i in range (1,mini+1):
+    if(m%i==0) and (n%i==0):
+      l1.append(i)
+  return max(l1)
 
+print("Enter the two numbers")
+a= int(input())
+b= int(input())
+print(gcd1(a,b))
 
+2.Sieve of Eratosthenes to 
+generate Prime Numbers Between Given Range
 
-#prime check
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=int(txt1.get())
-    if (a%2)!=0:
-        txt2.delete("0","end")
-        txt2.insert(0,"It is a prime") 
-    else:
-        txt2.delete("0","end")
-        txt2.insert(0,"It is not a prime")
-
-window=tk.Tk()
-l1=tk.Label(window,text="number",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="check",font=("calibri",20))
-l2.grid(column=0,row=5)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-Var=tk.StringVar()
-txt2=tk.Entry(window,width=10,textvariable=Var)
-txt2.grid(column=1,row=5)
-bt1=tk.Button(window,text="PRIME",command=clicked)
-bt1.grid(column=2,row=5)
-window.mainloop()
-
-
-
-#sum of n numbers
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=int(txt1.get())
-    if (a<0):
-        txt2.insert(0,"It is not a positive number") 
-    else:
-        sum=0
-        while(a>0):
-            sum+=a
-            a-=1
-        txt2.insert(0,str(sum))
-
-window=tk.Tk()
-l1=tk.Label(window,text="number",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="sum of numbers",font=("calibri",20))
-l2.grid(column=0,row=5)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-Var=tk.StringVar()
-txt2=tk.Entry(window,width=10,textvariable=Var)
-txt2.grid(column=1,row=5)
-bt1=tk.Button(window,text="ADD ALL",command=clicked)
-bt1.grid(column=2,row=5)
-window.mainloop()
-
-
-
-#greatest of 3 numbers
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=int(txt1.get())
-    b=int(txt2.get())
-    c=int(txt3.get())
-    if (a>b):
-        txt4.insert(0,"a is the greatest value") 
-    elif (b>c):
-        txt4.insert(0,"b is the greatest value")
-    else:
-        txt4.insert(0,"c is the greatest value")
-        
-window=tk.Tk()
-l1=tk.Label(window,text="a:",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="b:",font=("calibri",20))
-l2.grid(column=0,row=3)
-l3=tk.Label(window,text="c:",font=("calibri",20))
-l3.grid(column=0,row=5)
-l4=tk.Label(window,text="check",font=("calibri",20))
-l4.grid(column=0,row=7)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-txt2=tk.Entry(window,width=10)
-txt2.grid(column=1,row=3)
-txt3=tk.Entry(window,width=10)
-txt3.grid(column=1,row=5)
-Var=tk.StringVar()
-txt4=tk.Entry(window,width=10,textvariable=Var)
-txt4.grid(column=1,row=7)
-bt1=tk.Button(window,text="GREATEST",command=clicked)
-bt1.grid(column=2,row=5)
-window.mainloop()
-
-
-
-
-#fibonacci series
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=int(txt1.get())
-    b=1
-    c=1
-    d=0
-    j=a-2
-    for i in range(a-2):
-        while (j>0):
-            d=d+(b*(10**j))
-            break
-        j-=1
-        sum=b+c
-        b=c
-        c=sum
-    d=d+b
-    txt2.insert(0,int(d))
-    txt2.insert(0,str("0"))
-        
-window=tk.Tk()
-l1=tk.Label(window,text="enter length of series",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="fibonacci series",font=("calibri",20))
-l2.grid(column=0,row=5)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-Var=tk.StringVar()
-txt2=tk.Entry(window,width=10,textvariable=Var)
-txt2.grid(column=1,row=5)
-bt1=tk.Button(window,text="FIBO",command=clicked)
-bt1.grid(column=2,row=5)
-window.mainloop()
-
-
-
-#reverse of a number
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    c=0
-    i=2
-    a=int(txt1.get())
-    while(a>0):
-        b=a%10
-        a=a//10
-        while (i>0):
-            c=c+(b*(10**i))
-            break
-        i-=1
-    c=c+b
-    txt2.insert(0,int(c))
-window=tk.Tk()
-l1=tk.Label(window,text="a:",font=("calibri",20))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="reverse of a:",font=("calibri",20))
-l2.grid(column=0,row=3)
-txt1=tk.Entry(window,width=10)
-txt1.grid(column=1,row=0)
-Var=tk.StringVar()
-txt2=tk.Entry(window,width=10,textvariable=Var)
-txt2.grid(column=1,row=3)
-bt1=tk.Button(window,text="REVERSE",command=clicked)
-bt1.grid(column=1,row=5)
-window.mainloop()
-
-
-
-
-#strong number
-import tkinter as tk
-from tkinter import messagebox
-import math
-ws=tk.Tk()
-def clicked():
-    num=int(txt1.get())
-    s=0
-    temp=num
-    while temp > 0:
-        rem=temp%10 
-        s+=math.factorial(rem) 
-        temp//=10
-    if s==num:
-        return tk.messagebox.showinfo("checked","Strong number!!")
-    else:
-        return tk.messagebox.showinfo("checked","Not Strong number!!")
+def prime(n):
+    nonprime=set()
+    prime=[]
+    for i in range(2,n+1):
+        if i not in nonprime:
+            prime.append(i)
+        for j in range(i*i,n+1,i):
+            nonprime.add(j)
+    print("prime numbers: ",prime)
+    print("composite numbers are: ",nonprime)
     
-ws.title("Strong Number")
-ws.geometry('600x500+50+50')
+n=int(input("enter the value of n: " ))
+prime(n)
 
-l1=tk.Label(ws,text="Check if number is Strong or Not",font=("Arieal Bold",12))
-l1.grid(column=0,row=0)
-l2=tk.Label(ws,text="Enter the number:",font=("Ariel Bold",12))
-l2.grid(column=0,row=1)
-txt1=tk.Entry(ws,width=10)
-txt1.grid(column=1,row=1)
-b1=tk.Button(ws,text="Check",command=clicked)
-b1.grid(column=1,row=2)
+3.string matching using Brute 
+force
 
-ws.mainloop()
+def smatch(s1,sub):
+  l1= len(s1)
+  l2= len(sub)
+  for i in range(0,l1-l2+1):
+    j=0
+    while(j<l2):
+      if (s1[i+j]!=sub[j]):
+        break
+      j=j+1
+    if(j==l2):
+      return print("Pattern found at",i)
+      break
+  return -1
 
-
-
-#armstrong number
-import tkinter as tk
-from tkinter import messagebox
-import math
-ws=tk.Tk()
-
-def clicked():
-    num=int(txt1.get())
-    s=0
-    temp=num
-    while temp > 0:
-        rem=temp%10 
-        s+=(rem**3) 
-        temp//=10
-    if s==num:
-        return tk.messagebox.showinfo("checked","Armstrong number!!")
-    else:
-        return tk.messagebox.showinfo("checked","Not Armstrong number!!")
-    
-ws.title("Armstrong Number")
-ws.geometry('600x500+50+50')
-
-l1=tk.Label(ws,text="Check if number is Armstrong or Not",font=("Arieal Bold",12))
-l1.grid(column=0,row=0)
-l2=tk.Label(ws,text="Enter the number:",font=("Ariel Bold",12))
-l2.grid(column=0,row=1)
-txt1=tk.Entry(ws,width=10)
-txt1.grid(column=1,row=1)
-b1=tk.Button(ws,text="Check",command=clicked)
-b1.grid(column=1,row=2)
-
-ws.mainloop()
-
-
-
-#to find no.of lines,words and characters in a paragraph
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=str(txt1.get())
-    spaces=0
-    lines=0
-    chars=0
-    for i in range(len(a)):
-        if a[i]=="\n":
-            lines+=1
-        elif a[i]==' ':
-            spaces+=1
-        chars+=1
-    txt2.delete("0","end")
-    txt2.insert(0,int(lines+1))
-    txt3.delete("0","end")
-    txt3.insert(0,int(spaces+1))
-    txt4.delete("0","end")
-    txt4.insert(0,int(chars))
-            
-window=tk.Tk()       
-l1=tk.Label(window,text="a:",font=("Arieal Bold",12))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="no.of lines",font=("calibri",20))
-l2.grid(column=0,row=3)
-l3=tk.Label(window,text="no.of words:",font=("calibri",20))
-l3.grid(column=0,row=5)
-l3=tk.Label(window,text="no.of characters:",font=("calibri",20))
-l3.grid(column=0,row=7)
-txt1=tk.Entry(window,width=100)
-txt1.grid(column=1,row=0)
-Var1=tk.StringVar()
-txt2=tk.Entry(window,width=100,textvariable=Var1)
-txt2.grid(column=1,row=3)
-Var2=tk.StringVar()
-txt3=tk.Entry(window,width=100,textvariable=Var2)
-txt3.grid(column=1,row=5)
-Var3=tk.StringVar()
-txt4=tk.Entry(window,width=100,textvariable=Var3)
-txt4.grid(column=1,row=7)
-b1=tk.Button(window,text="Check",command=clicked)
-b1.grid(column=1,row=2)
-window.mainloop()
-
-
-
-#to find no.of vowels and consonants
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=str(txt1.get())
-    lst=['a','e','i','o','u','A','E','I','O','U']
-    count=0
-    for i in range(len(a)):
-        for j in lst:
-            if a[i]==j:
-                count+=1
-            con=len(a)-count
-        txt2.delete("0","end")
-        txt2.insert(0,int(count))
-        txt3.delete("0","end")
-        txt3.insert(0,int(con))
-        
-window=tk.Tk()       
-l1=tk.Label(window,text="a:",font=("Arieal Bold",12))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="no.of vowels",font=("calibri",20))
-l2.grid(column=0,row=3)
-l3=tk.Label(window,text="no.of consonants:",font=("calibri",20))
-l3.grid(column=0,row=5)
-txt1=tk.Entry(window,width=100)
-txt1.grid(column=1,row=0)
-Var1=tk.StringVar()
-txt2=tk.Entry(window,width=100,textvariable=Var1)
-txt2.grid(column=1,row=3)
-Var2=tk.StringVar()
-txt3=tk.Entry(window,width=100,textvariable=Var2)
-txt3.grid(column=1,row=5)
-b1=tk.Button(window,text="Check",command=clicked)
-b1.grid(column=1,row=2)
-window.mainloop()
-
-
-
-#to check palindrome condidtion
-import tkinter as tk
-from tkinter import messagebox as m
-def clicked():
-    a=str(txt1.get())
-    n=""
-    count=0
-    for i in a:
-        n=i+n
-    if a==n:
-        txt2.delete("0","end")
-        txt2.insert(0,str("its a palindrome"))
-    else:
-        txt2.delete("0","end")
-        txt2.insert(0,str("its not a palindrome"))
-        
-window=tk.Tk()       
-l1=tk.Label(window,text="a:",font=("Arieal Bold",12))
-l1.grid(column=0,row=0)
-l2=tk.Label(window,text="palindrome check:",font=("calibri",20))
-l2.grid(column=0,row=3)
-txt1=tk.Entry(window,width=100)
-txt1.grid(column=1,row=0)
-Var1=tk.StringVar()
-txt2=tk.Entry(window,width=100,textvariable=Var1)
-txt2.grid(column=1,row=3)
-b1=tk.Button(window,text="Check",command=clicked)
-b1.grid(column=1,row=2)
-window.mainloop()       
+s1= input("Enter the main string: ")
+sub= input("Enter the substring: ")
+smatch(s1,sub)
